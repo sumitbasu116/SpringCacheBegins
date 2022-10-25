@@ -15,6 +15,7 @@ public class APIService {
 
 	@Cacheable(value = "student-cache",key="'student-key'+#studentId")
 	public Optional<Student> fetchStudent(String studentId) throws InterruptedException {
+		//First time, this request will take 4s, then it will take 6ms to serve the request as it is taking it from cache. 
 		Thread.sleep(4000);
 		return Arrays
 				.asList(new Student("19VC21", "John", "Wayne", "11",
